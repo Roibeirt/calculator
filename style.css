@@ -1,0 +1,6 @@
+#numpad{
+    display: flex;
+    flex: auto;
+    max-width: 60px;
+    flex-wrap: wrap;
+}
