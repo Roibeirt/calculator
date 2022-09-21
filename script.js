@@ -1,13 +1,17 @@
-const numpad = document.querySelector("#numpad");
-let digits = new Array();
+const calcScreen = document.querySelector("#screen");
+let digitButtons = document.querySelectorAll(".numpad-row button");
 
-for (i=0; i<10; i++){
+calcScreen.oninput = () => {
+    calcScreen.value = calcScreen.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+  }
+  
+function writeToScreen(){
 
-    digits[i]=document.createElement("button");
-    numpad.appendChild(digits[i]);
-    digits[i].style.width = "20px";
-    digits[i].style.display = "flex";
-    digits[i].style.flex = "auto";
-    digits[i].textContent = 9-i;
-    
+    calcScreen.value += this.textContent;
+    calcScreen.value = calcScreen.value.replace(/(\..*)\./g, '$1');
 }
+
+digitButtons.forEach((currentValue) => currentValue.addEventListener("click", writeToScreen));
+
+
+
