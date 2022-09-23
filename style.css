@@ -11,30 +11,30 @@
     padding-top: 50px;
 }
 
-#numpad{
+/*#numpad{
     display: flex;
     flex-direction: column;
 
-}
+}*/
 
 .operator-container{
     display: flex;
     flex-direction: column;
-    width: 150px;
 }
 
 .numpad-container{
 
-    display:flex;
-    height: 600px;
+
+    height: 300px;
+    display: flex;
 
 
 }
 
 .numpad-row{
     display: flex;
-    width: 450px;
-    height: 150px;
+    /*width: 450px;
+    height: 150px;*/
 
 
 }
@@ -48,12 +48,25 @@
 }
 
 button {
-    flex-grow:1;
+    /*flex-grow:1;*/
     height: 100%;
-    font-size: 3rem ;
+    font-size: 2rem ;
+    min-width: 72px;
 }
 
 #numpad-zero{
     flex-grow: 2;
 }
 
+#option-buttons{
+
+    display: flex;
+
+
+}
+
+#numpad{
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+}
