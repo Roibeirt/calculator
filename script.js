@@ -45,8 +45,6 @@ function multiply(value1, value2){
     return(value1*value2);
 }
 
-//declare variable to hold current operator
-//let operator = "";
 
 //find operator buttons in DOM, declare them to variables
 //assign event listener to buttons to change currently selected operator
@@ -77,7 +75,7 @@ let newValue = null;
 function assignOperator(operator, equals){
 
     //if there is no current operator, there is no second value so operate is not called
-    if (currentOperator == null){
+    if (currentOperator == null || (newInput == false  && operator != currentOperator)){
         currentValue = Number(calcScreen.value);
         currentOperator = operator;
         operated = true;
@@ -107,11 +105,11 @@ function assignOperator(operator, equals){
             return;
         }
         else if(equals != true) operate(previousOperator);
-        else operate(currentOperator);
+        else operate(currentOperator, true);
     }
 }
 
-function operate(operator){
+function operate(operator, equals){
 
     //if someone presses equals after the first operator, previous value won't be assigned. This makes sure it is assigned.
     if(previousValue == null){
@@ -137,10 +135,13 @@ function operate(operator){
         calcScreen.value = add(previousValue, currentValue);
     }
 
-    /*if (currentOperator == "divide"){
-        let scooch = currentValue;
-        currentValue = previousValue;
-    }*/
+    previousValue = currentValue;
+    currentValue = calcScreen.value;
+
+    //if the user presses equals, pressing another operator should start a new operation
+    if (equals == true){
+        currentOperator = null;
+    }
     operated = true;
 
 }
@@ -171,5 +172,3 @@ clearButton.addEventListener("click", () => {
     calcScreen.value = null;
 
 });
-
-
