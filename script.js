@@ -123,6 +123,10 @@ function operate(operator, equals){
         if(sameOperation == true){
             calcScreen.value = divide(currentValue, previousValue);
         }
+        else if (currentValue == 0){
+            window.alert("I suppose you think that was terribly clever");
+            allClear();
+        }
         else calcScreen.value = divide(previousValue, currentValue);
     }
     else if (operator == "multiply"){
@@ -159,7 +163,9 @@ equalsButton.addEventListener("click", () => {
 });
 
 const clearButton = document.getElementById("clear-button");
-clearButton.addEventListener("click", () => {
+clearButton.addEventListener("click", () => allClear());
+
+function allClear(){
 
     previousOperator = null;
     currentOperator = null;
@@ -171,4 +177,10 @@ clearButton.addEventListener("click", () => {
     
     calcScreen.value = null;
 
-});
+}
+
+const posNegButton = document.getElementById("posneg-button");
+posNegButton.addEventListener("click", () => calcScreen.value = calcScreen.value*-1);
+
+const percentageButton = document.getElementById("percentage-button");
+percentageButton.addEventListener("click", () => window.alert("I don't do anything yet :("));

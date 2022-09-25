@@ -3,6 +3,11 @@
     margin:0;
 }
 
+body{
+    height:100vh;
+    background: linear-gradient(#5da7ae, #ffebbc);
+}
+
 #calculator-container{
     display:flex;
     justify-content: center;
@@ -10,40 +15,37 @@
     flex-direction: column;
     padding-top: 50px;
 }
-
-/*#numpad{
-    display: flex;
-    flex-direction: column;
-
-}*/
-
 .operator-container{
     display: flex;
     flex-direction: column;
 }
 
+.operator-container button{
+    background-color: #5da7ae;
+}
+
 .numpad-container{
-
-
     height: 300px;
-    display: flex;
-
-
+    display: flex;  
 }
 
 .numpad-row{
     display: flex;
-    /*width: 450px;
-    height: 150px;*/
+}
 
+.numpad-row button{
+
+    background-color: #543d46;
 
 }
 
 #screen{
 
     height:4rem;
-    width: 596px;
+    width: 288px;
     font-size: 3rem;
+    background-color: #292830;
+    color: lightgrey;
 
 }
 
@@ -52,6 +54,9 @@ button {
     height: 100%;
     font-size: 2rem ;
     min-width: 72px;
+    color: lightgrey;
+    border: 3px solid black;
+    border-radius: 10px;
 }
 
 #numpad-zero{
@@ -61,8 +66,10 @@ button {
 #option-buttons{
 
     display: flex;
+}
 
-
+#option-buttons button{
+    background-color: #5da7ae;
 }
 
 #numpad{
@@ -70,3 +77,5 @@ button {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 
 }
+
+
